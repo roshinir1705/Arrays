@@ -1,0 +1,18 @@
+str_one,str_two=input().split()
+count=[]
+coun1=[count.append(0)for i in range(26)]
+str1=sorted(str_one)
+str2=sorted(str_two)
+def check_permutation(str1,str2):
+  if len(str1)!=len(str2):
+    return False 
+  else:
+    for i in range(len(str1)):
+      count[(ord(str1[i])-ord('a'))]=count[(ord(str1[i])-ord('a'))]+1
+      count[(ord(str2[i])-ord('a'))]=count[(ord(str2[i])-ord('a'))]-1
+  for i in range(len(count)):
+    if count[i]:
+      return False
+  return True
+print(check_permutation(str1,str2))
+      
